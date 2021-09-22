@@ -16,12 +16,16 @@ import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
 
 /**
  * The Class CompoundInterestCalculatorImpl.
  */
+@Service
 public class CompoundInterestCalculatorImpl implements CompoundInterestCalculator {
 
   /**
@@ -34,7 +38,7 @@ public class CompoundInterestCalculatorImpl implements CompoundInterestCalculato
   public List<InvestmentYieldDto> createRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
   Integer investmentYear = 0;
   Double initialInvestment = 0.00;
-  Double yearlyInput = 0.00;
+  Double yearlyInput = 0.00; 
   Double investmentYield = 0.00;
   Double finalBalance = 0.00;
 
@@ -94,10 +98,10 @@ public class CompoundInterestCalculatorImpl implements CompoundInterestCalculato
                                                                     // una cosa y lo deben de hacer
                                                                     // bien
     Double yearlyInput = initialInvestment.getYearlyInput();
-    yearlyInput = yearlyInput == null ? 0.0 : yearlyInput;
+    yearlyInput = yearlyInput == null ? 0.0 : yearlyInput; 
     initialInvestment.setYearlyInput(yearlyInput);
 
-    Integer yearlyInputIncrement = initialInvestment.getYearlyInputIncrement();
+    Integer yearlyInputIncrement = initialInvestment.getYearlyInputIncrement(); 
     yearlyInputIncrement = yearlyInputIncrement == null ? 0 : yearlyInputIncrement;
     initialInvestment.setYearlyInputIncrement(yearlyInputIncrement);
   }

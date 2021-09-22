@@ -21,7 +21,6 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.List;
 
-
 /**
  * The Class ApplicationControllerTest.
  */
@@ -63,14 +62,14 @@ public class ApplicationControllerTest {
   @Test
   public void shouldGenerateTableYield() {
 
-    List<InvestmentYieldDto> tableYield = controller.createTableYield(initialInvestment);
+    List<InvestmentYieldDto> tableYield = controller.createTableYield("application/json",initialInvestment);
 
     assertEquals(5, tableYield.size());
 
-    InvestmentYieldDto firstYear = tableYield.get(1);
-    assertEquals(Double.valueOf(9680.00), firstYear.getInitialInvestment());
-    assertEquals(Double.valueOf(3030.00), firstYear.getYearlyInput());
-    assertEquals(Double.valueOf(2670), firstYear.getInvestmentYield());
-    assertEquals(Double.valueOf(15380), firstYear.getFinalBalance());
+    InvestmentYieldDto firstYear = tableYield.get(0);
+    assertEquals(Double.valueOf(5000.00), firstYear.getInitialInvestment());
+    assertEquals(Double.valueOf(3000.00), firstYear.getYearlyInput());
+    assertEquals(Double.valueOf(1680.00), firstYear.getInvestmentYield());
+    assertEquals(Double.valueOf(9680.00), firstYear.getFinalBalance());
   }
 }
